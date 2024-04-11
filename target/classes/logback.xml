@@ -1,0 +1,76 @@
+<configuration>
+    <!-- Configuración del apéndice para los mensajes de INFO -->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>data/logs/Info_Logs.txt</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- Configuración del apéndice para los mensajes generales -->
+    <appender name="GENERAL_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>data/logs/General_Logs.txt</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configuración del apéndice para los mensajes de DEBUG -->
+    <appender name="DEBUG_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>data/logs/Debug_Logs.txt</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- Configuración del apéndice para los mensajes de ERROR -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>data/logs/Error_Logs.txt</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- Configuración del apéndice para los mensajes de TRACE -->
+    <appender name="TRACE_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>data/logs/Trace_Logs.txt</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- Configuración del nivel de log raíz -->
+    <root level="DEBUG">
+        <appender-ref ref="INFO_FILE"/>
+        <appender-ref ref="DEBUG_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+        <appender-ref ref="TRACE_FILE"/> <!-- Se añade la referencia al apéndice TRACE_FILE -->
+        <appender-ref ref="GENERAL_FILE"/>
+    </root>
+
+</configuration>
